@@ -10,7 +10,7 @@ class	PhoneBook
 
 	public:
 		void	add_contact(Contact contact);
-		void	search_contacts(Contact contact) const;
+		Contact	get_contact(int index) const;
 };
 
 #endif

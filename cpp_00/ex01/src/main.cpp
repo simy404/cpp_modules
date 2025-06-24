@@ -10,8 +10,8 @@ int main() {
 	state = true;
 	while (state) {
 		std::cout << "Enter command (ADD/SEARCH/EXIT): ";
-		std::cin >> command;
-		state = commandHandler.handleCommand(command);
+		getline(std::cin, command);
+		state = commandHandler.HandleCommand(command);
 	}
 	return 0;
 }
