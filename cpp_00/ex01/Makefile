@@ -1,14 +1,15 @@
 NAME = phonebook
 
-SRCS = main.cpp \
-		Contact.cpp \
-		PhoneBook.cpp
+SRCS = src/main.cpp \
+		src/Contact.cpp \
+		src/PhoneBook.cpp \
+		src/CommandHandler.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 CXX = c++
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98  -Iincludes
 
 all: $(NAME)
 

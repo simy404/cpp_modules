@@ -6,11 +6,11 @@
 class	PhoneBook
 {
 	Contact	contacts[8];
-	int total_contacts;
+	int		total_contacts;
 
 	public:
-		void add_contact(Contact contact);
-		void search_contacts(Contact contact) const;
+		void	add_contact(Contact contact);
+		void	search_contacts(Contact contact) const;
 };
 
 #endif
