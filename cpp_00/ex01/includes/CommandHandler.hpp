@@ -8,9 +8,11 @@ class	CommandHandler
 	PhoneBook	phoneBook; /*I think I need dependency injection*/
 
 	private:
-		void	add();
-		void	search();
-		void	exit();
+		void	Add();
+		void	Search();
+		void	Exit();
+
+		std::string get_input(std::string prompt);
 
 	public:
 		int	handleCommand(std::string command);

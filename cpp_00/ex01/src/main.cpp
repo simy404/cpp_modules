@@ -1,10 +1,9 @@
 #include <limits.h>
 #include <iostream>
-#include "PhoneBook.hpp"
 #include "CommandHandler.hpp"
 
 int main() {
-	CommandHandler	CommandHandler;
+	CommandHandler	commandHandler;
 	std::string		command;
 	bool			state;
 
@@ -12,7 +11,7 @@ int main() {
 	while (state) {
 		std::cout << "Enter command (ADD/SEARCH/EXIT): ";
 		std::cin >> command;
-		state = CommandHandler.handleCommand(command);
+		state = commandHandler.handleCommand(command);
 	}
 	return 0;
 }
