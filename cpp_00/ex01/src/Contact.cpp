@@ -13,6 +13,7 @@ std::string 	Contact::get_nickname() const
 {
 	return _nickname;
 }
+
 std::string 	Contact::get_phone_number() const
 {
 	return _phone_number;

@@ -12,12 +12,12 @@ class	CommandHandler
 		void	Add();
 		void	Search();
 
-		std::string	get_input(std::string prompt);
-
 	public:
 		CommandHandler();
 		void	HandleCommand(std::string command);
 		bool	get_state() const;
+
+		std::string	get_input(std::string prompt);
 };
 
 #endif

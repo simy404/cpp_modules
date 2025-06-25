@@ -22,7 +22,7 @@ std::string	CommandHandler::get_input(const std::string prompt)
 	do {
 		std::cout << prompt;
 		std::getline(std::cin, input);
-		if (std::cin.eof() ) {
+		if (std::cin.eof()) {
 			state = false;
 			break;
 		}

@@ -7,8 +7,7 @@ int main() {
 	std::string		command;
 
 	do {
-		std::cout << "Enter command (ADD/SEARCH/EXIT): ";
-		getline(std::cin, command);
+		command = commandHandler.get_input("Enter command (ADD/SEARCH/EXIT): ");
 		commandHandler.HandleCommand(command);
 	} while (commandHandler.get_state());
 	return 0;
