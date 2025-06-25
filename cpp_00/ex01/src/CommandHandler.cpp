@@ -21,8 +21,8 @@ std::string	CommandHandler::get_input(const std::string prompt)
 		return input;
 	do {
 		std::cout << prompt;
-		std::getline(std::cin, input);
-		if (std::cin.eof()) {
+		if(!std::getline(std::cin, input)) {
+			std::endl(std::cout);
 			state = false;
 			break;
 		}
@@ -32,13 +32,16 @@ std::string	CommandHandler::get_input(const std::string prompt)
 
 void	CommandHandler::Add()
 {
-	phoneBook.add_contact(Contact(
-		get_input("Enter first name: "),
-		get_input("Enter last name: "),
-		get_input("Enter nickname: "),
-		get_input("Enter phone number: "),
-		get_input("Enter darkest secret: ")
-	));
+	std::string first_name, last_name, nickname, phone, secret;
+
+	first_name = get_input("Enter first name: ");
+	last_name = get_input("Enter last name: ");
+	nickname = get_input("Enter nickname: ");
+	phone = get_input("Enter phone number: ");
+	secret = get_input("Enter darkest secret: ");
+
+	if (state == true)
+		phoneBook.add_contact(Contact(first_name, last_name, nickname, phone, secret));
 }
 
 CommandHandler::CommandHandler()

@@ -5,7 +5,7 @@
 
 class	CommandHandler
 {
-	PhoneBook	phoneBook; /*I think I need dependency injection*/
+	PhoneBook	phoneBook;
 	bool		state;
 
 	private:

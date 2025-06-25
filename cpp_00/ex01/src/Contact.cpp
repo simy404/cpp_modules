@@ -24,14 +24,7 @@ std::string 	Contact::get_darkest_secret() const
 	return _darkest_secret;
 }
 
-Contact::Contact()
-{
-	_first_name = "";
-	_last_name = "";
-	_nickname = "";
-	_phone_number = "";
-	_darkest_secret = "";
-}
+Contact::Contact(){};
 
 Contact::Contact(std::string first_name, std::string last_name, std::string nickname, std::string phone_number, std::string darkest_secret)
 {
