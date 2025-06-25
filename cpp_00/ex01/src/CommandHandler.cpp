@@ -1,28 +1,32 @@
 #include "CommandHandler.hpp"
 #include <iostream>
 
-int	CommandHandler::HandleCommand(std::string command)
+void	CommandHandler::HandleCommand(std::string command)
 {
 	if (command == "ADD")
 		Add();
 	else if (command == "SEARCH")
 		Search();
 	else if (command == "EXIT")
-		return (0);
+		state = false;
 	else
 		std::cout << "Invalid Command" << std::endl;
-	return (1);
 }
 
 std::string	CommandHandler::get_input(const std::string prompt)
 {
-	std::string	input;
-
+	std::string	input = "";
+	if (!state) {
+		std::cout << "PhoneBook is closed. Please open it first." << std::endl;
+		return "";
+	}
 	do {
 		std::cout << prompt;
 		std::getline(std::cin, input);
-		if (std::cin.eof())
-			std::exit(0);
+		if (std::cin.eof() ) {
+			state = false;
+			return "";
+		}
 	} while (input.empty());
 	return input;
 }
@@ -38,6 +42,11 @@ void	CommandHandler::Add()
 	));
 }
 
+CommandHandler::CommandHandler()
+{
+	state = true;
+}
+
 void	CommandHandler::Search()
 {
 	int	index;
@@ -45,3 +54,9 @@ void	CommandHandler::Search()
 	std::cout << "Enter index to search (0-7): ";
 	std::cin >> index;
 }
+
+bool	CommandHandler::get_state() const
+{
+	return state;
+}
+

@@ -50,7 +50,10 @@ void	Contact::set_darkest_secret(std::string darkest_secret)
 	_darkest_secret = darkest_secret;
 }
 
-Contact::Contact() {}
+Contact::Contact() : _first_name(""), _last_name(""), _nickname(""), _phone_number(""), _darkest_secret("")
+{
+	
+}
 
 Contact::Contact(std::string first_name, std::string last_name, std::string nickname, std::string phone_number, std::string darkest_secret)
 {

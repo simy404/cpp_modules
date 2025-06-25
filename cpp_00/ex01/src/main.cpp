@@ -5,13 +5,12 @@
 int main() {
 	CommandHandler	commandHandler;
 	std::string		command;
-	bool			state;
 
-	state = true;
-	while (state) {
+	do {
 		std::cout << "Enter command (ADD/SEARCH/EXIT): ";
 		getline(std::cin, command);
-		state = commandHandler.HandleCommand(command);
-	}
+		commandHandler.HandleCommand(command);
+	} while (commandHandler.get_state());
+
 	return 0;
 }

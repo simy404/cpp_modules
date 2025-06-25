@@ -9,6 +9,7 @@ class	PhoneBook
 	int		total_contacts;
 
 	public:
+		PhoneBook();
 		void	add_contact(Contact contact);
 		Contact	get_contact(int index) const;
 };

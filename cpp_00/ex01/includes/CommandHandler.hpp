@@ -6,15 +6,18 @@
 class	CommandHandler
 {
 	PhoneBook	phoneBook; /*I think I need dependency injection*/
+	bool		state;
 
 	private:
 		void	Add();
 		void	Search();
 
-		std::string get_input(std::string prompt);
+		std::string	get_input(std::string prompt);
 
 	public:
-		int	HandleCommand(std::string command);
+		CommandHandler();
+		void	HandleCommand(std::string command);
+		bool	get_state() const;
 };
 
 #endif
