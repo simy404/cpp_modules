@@ -16,16 +16,15 @@ void	CommandHandler::HandleCommand(std::string command)
 std::string	CommandHandler::get_input(const std::string prompt)
 {
 	std::string	input = "";
-	if (!state) {
-		std::cout << "PhoneBook is closed. Please open it first." << std::endl;
-		return "";
-	}
+
+	if (!state)
+		return input;
 	do {
 		std::cout << prompt;
 		std::getline(std::cin, input);
 		if (std::cin.eof() ) {
 			state = false;
-			return "";
+			break;
 		}
 	} while (input.empty());
 	return input;
@@ -53,6 +52,10 @@ void	CommandHandler::Search()
 
 	std::cout << "Enter index to search (0-7): ";
 	std::cin >> index;
+	if (std::cin.eof()) {
+		state = false;
+		return ;
+	}
 }
 
 bool	CommandHandler::get_state() const

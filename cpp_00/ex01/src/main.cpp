@@ -11,6 +11,5 @@ int main() {
 		getline(std::cin, command);
 		commandHandler.HandleCommand(command);
 	} while (commandHandler.get_state());
-
 	return 0;
 }
