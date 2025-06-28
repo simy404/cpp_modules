@@ -1,14 +1,26 @@
-#include <limits.h>
 #include <iostream>
-#include "CommandHandler.hpp"
+#include "PhoneBook.hpp"
 
 int main() {
-	CommandHandler	commandHandler;
+	PhoneBook		phoneBook;
 	std::string		command;
 
-	do {
-		command = commandHandler.get_input("Enter command (ADD/SEARCH/EXIT): ");
-		commandHandler.HandleCommand(command);
-	} while (commandHandler.get_state());
+	while (!std::cin.fail()) {
+		std::cout << "Enter command (ADD, SEARCH, EXIT): ";
+
+		if(!std::getline(std::cin, command) || command == "EXIT") {
+			break;
+		}
+
+		if (command == "ADD") {
+			phoneBook.Add();
+		}
+		else if (command == "SEARCH") {
+			phoneBook.Search();
+		}
+		else {
+			std::cout << "Invalid Command" << std::endl;
+		}
+	}
 	return 0;
 }

@@ -3,7 +3,6 @@ NAME = phonebook
 SRCS = src/main.cpp \
 		src/Contact.cpp \
 		src/PhoneBook.cpp \
-		src/CommandHandler.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
