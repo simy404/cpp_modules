@@ -10,7 +10,7 @@ std::string	PhoneBook::get_input(const std::string prompt) const
 {
 	std::string	input = "";
 
-	if (std::cin.fail()) {
+	if (std::cin.fail() || std::cin.eof()) {
 		return input;
 	}
 
