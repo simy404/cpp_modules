@@ -14,10 +14,10 @@ int main() {
 		}
 
 		if (command == "ADD") {
-			phoneBook.Add();
+			phoneBook.add();
 		}
 		else if (command == "SEARCH") {
-			phoneBook.Search();
+			phoneBook.search();
 		}
 		else if (command == "EXIT") {
 			break;
