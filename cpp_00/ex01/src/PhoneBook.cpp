@@ -1,5 +1,6 @@
 #include "PhoneBook.hpp"
 #include <iostream>
+#include <iomanip>
 
 PhoneBook::PhoneBook()
 {
@@ -24,7 +25,8 @@ std::string	PhoneBook::get_input(const std::string prompt) const
 	return input;
 }
 
-void PhoneBook::add_contact(Contact contact) {
+void	PhoneBook::add_contact(Contact contact)
+{
 	if (contact_count < 8) {
 		contacts[contact_count] = contact;
 		contact_count++;
@@ -54,24 +56,46 @@ void	PhoneBook::Add()
 
 	new_contact.set_darkest_secret(get_input("Enter darkest secret: "));
 	if (new_contact.get_darkest_secret().empty()) return;
+
 	add_contact(new_contact);
 }
 
-void PhoneBook::Search()
+std::string	PhoneBook::format_output(const std::string str) const
 {
-	// int	index;
+	return str.length() > 10 ? str.substr(0, 9) + "." : str;
+}
 
-	// std::cout << "     Index|" << "First Name|" << " Last Name|" << "  Nickname" << std::endl;
-	// for (int i = 0; i < phoneBook.get_contact_count(); i++) {
-	// 	Contact contact = phoneBook.get_contact(i);
+void	PhoneBook::display_contacts() const
+{
+	std::cout << "     Index|" << "First Name|" << " Last Name|" << "  Nickname" << std::endl;
 
-	// 	std::cout << "         " << i << "|";
-	// 	std::cout <<  std::setw(10) << (contact.get_first_name().length() > 10 ? contact.get_first_name().substr(0, 9) + "." : contact.get_first_name()) << "|";
-	// 	std::cout <<  std::setw(10) << (contact.get_last_name().length() > 10 ? contact.get_last_name().substr(0, 9) + "." : contact.get_last_name()) << "|";
-	// 	std::cout <<  std::setw(10) << (contact.get_nickname().length() > 10 ? contact.get_nickname().substr(0, 9) + "." : contact.get_nickname()) << std::endl;
-	// }
-	// std::cout << "Enter index to search (0-7): ";
-	// std::cin >> index;
-	// if (state == false)
-	// 	return ;
+	for (int i = 0; i < contact_count; i++) {
+		std::cout << std::setw(10) << i << "|"
+				<< std::setw(10) << format_output(contacts[i].get_first_name()) << "|"
+				<< std::setw(10) << format_output(contacts[i].get_last_name()) << "|"
+				<< std::setw(10) << format_output(contacts[i].get_nickname()) << std::endl;
+	}
+}
+
+void	PhoneBook::display_contact(int index) const
+{
+	std::cout << "First Name: " << contacts[index].get_first_name() << std::endl
+		<< "Last Name: " << contacts[index].get_last_name() << std::endl
+		<< "Nickname: " << contacts[index].get_nickname() << std::endl
+		<< "Phone Number: " << contacts[index].get_phone_number() << std::endl
+		<< "Darkest Secret: " << contacts[index].get_darkest_secret() << std::endl;
+}
+
+void PhoneBook::Search() {
+	int index;
+
+	display_contacts();
+
+	std::cout << "Enter index to search (0-7): ";
+	std::cin >> index;
+	if (std::cin.fail() || index < 0 || index >= contact_count) {
+		std::cout << "Invalid index." << std::endl;
+		return;
+	}
+	display_contact(index);
 }
