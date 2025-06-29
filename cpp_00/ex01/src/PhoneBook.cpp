@@ -38,7 +38,7 @@ void	PhoneBook::add_contact(Contact contact)
 	}
 }
 
-void	PhoneBook::Add()
+void	PhoneBook::add()
 {
 	Contact	new_contact;
 
@@ -100,16 +100,15 @@ int	PhoneBook::get_input_index(const std::string prompt) const {
 	return index;
 }
 
-void PhoneBook::Search() {
+void PhoneBook::search() {
 	int	index;
-
-	display_contacts();
 
 	if (contact_count == 0) {
 		std::cout << "No contacts available." << std::endl;
 		return;
 	}
-	index = get_input_index("Enter index of contact to display (0-7): ");
+	display_contacts();
+	index = get_input_index("Enter index of contact to display: ");
 	if (index < 0 || index >= contact_count) {
 		std::cout << "Invalid index." << std::endl;
 		return;
