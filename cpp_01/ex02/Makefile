@@ -1,8 +1,6 @@
-NAME = zombie
+NAME = brain
 
-SRCS = src/main.cpp \
-		src/Zombie.cpp \
-		src/zombieHorde.cpp \
+SRCS = main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

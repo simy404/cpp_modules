@@ -1,8 +1,8 @@
 #include "Zombie.hpp"
 
 int main() {
-	int N = 21;
-	std::string name = "newZombie";
+	int	N = 21;
+	std::string	name = "newZombie";
 
 	Zombie* horde = zombieHorde(N, name);
 
