@@ -13,8 +13,9 @@ class	PhoneBook
 		void	display_contacts() const;
 		void	add_contact(Contact contact);
 
-		std::string format_output(const std::string str) const;
+		std::string	format_output(const std::string str) const;
 		std::string	get_input(const std::string prompt) const;
+		int			get_input_index(const std::string prompt) const;
 
 	public:
 		PhoneBook();

@@ -1,6 +1,7 @@
 #include "PhoneBook.hpp"
 #include <iostream>
 #include <iomanip>
+#include <sstream>
 
 PhoneBook::PhoneBook()
 {
@@ -28,8 +29,7 @@ std::string	PhoneBook::get_input(const std::string prompt) const
 void	PhoneBook::add_contact(Contact contact)
 {
 	if (contact_count < 8) {
-		contacts[contact_count] = contact;
-		contact_count++;
+		contacts[contact_count++] = contact;
 	} else {
 		for (int i = 0; i < 7; i++) {
 			contacts[i] = contacts[i + 1];
@@ -86,14 +86,31 @@ void	PhoneBook::display_contact(int index) const
 		<< "Darkest Secret: " << contacts[index].get_darkest_secret() << std::endl;
 }
 
-void PhoneBook::Search() {
+int	PhoneBook::get_input_index(const std::string prompt) const {
+	std::string input = get_input(prompt);
+	if (input.empty()) {
+		return -1;
+	}
+	std::stringstream 	ss(input);
 	int index;
+
+	if (!(ss >> index)) {
+		return -1;
+	}
+	return index;
+}
+
+void PhoneBook::Search() {
+	int	index;
 
 	display_contacts();
 
-	std::cout << "Enter index to search (0-7): ";
-	std::cin >> index;
-	if (std::cin.fail() || index < 0 || index >= contact_count) {
+	if (contact_count == 0) {
+		std::cout << "No contacts available." << std::endl;
+		return;
+	}
+	index = get_input_index("Enter index of contact to display (0-7): ");
+	if (index < 0 || index >= contact_count) {
 		std::cout << "Invalid index." << std::endl;
 		return;
 	}
