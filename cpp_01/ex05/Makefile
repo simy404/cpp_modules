@@ -1,7 +1,7 @@
 NAME = harl
 
-SRCS = main.cpp \
-	src/harl.cpp
+SRCS = src/main.cpp \
+	src/Harl.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
