@@ -1,4 +1,4 @@
-#include "Fixed.hpp"
+#include "../includes/Fixed.hpp"
 #include <iostream>
 #include <math.h>
 
@@ -32,6 +32,48 @@ Fixed&	Fixed::operator=(const Fixed &fixed) {
 	}
 	return *this;
 };
+
+bool	Fixed::operator==(const Fixed &rfp) {
+	return  this->getRawBits() == rfp.getRawBits();
+}
+
+bool	Fixed::operator!=(const Fixed &rfp) {
+	return  this->getRawBits() != rfp.getRawBits();
+}
+
+bool	Fixed::operator>=(const Fixed &rfp) {
+	return  this->getRawBits() >= rfp.getRawBits();
+}
+
+bool	Fixed::operator<=(const Fixed &rfp) {
+	return  this->getRawBits() <= rfp.getRawBits();
+}
+
+bool	Fixed::operator>(const Fixed &rfp) {
+	return  this->getRawBits() > rfp.getRawBits();
+}
+
+bool	Fixed::operator<(const Fixed &rfp) {
+	return  this->getRawBits() < rfp.getRawBits();
+}
+
+Fixed	Fixed::operator+(const Fixed &rfp) {
+	Fixed result;
+	result.setRawBits(this->getRawBits() + rfp.getRawBits());
+	return (result);
+}
+
+Fixed	Fixed::operator-(const Fixed &rfp) {
+	Fixed result;
+	result.setRawBits(this->getRawBits() - rfp.getRawBits());
+	return (result);
+}
+
+Fixed	Fixed::operator*(const Fixed &rfp) {
+	Fixed result;
+	result.setRawBits(this->getRawBits() * rfp.getRawBits());
+	return (result);
+}
 
 int	Fixed::getRawBits(void) const {
 	std::cout << "getRawBits member function called" << std::endl;
