@@ -3,14 +3,14 @@
 
 class	Fixed
 {
-	int	fixed_number;
+	int	_raw;
 	static const int	fractional; // make it 8
-	
+
 	public:
 		Fixed();
 		Fixed(Fixed &fixed);
 		Fixed&	operator=(const Fixed &fixed);
-		
+
 		int	getRawBits(void) const;
 		void	setRawBits(int const raw);
 		~Fixed();
