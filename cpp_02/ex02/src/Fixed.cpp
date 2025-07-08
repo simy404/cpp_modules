@@ -33,43 +33,43 @@ Fixed&	Fixed::operator=(const Fixed &fixed) {
 	return *this;
 };
 
-bool	Fixed::operator==(const Fixed &rfp) {
+bool	Fixed::operator==(const Fixed &rfp) const {
 	return  this->getRawBits() == rfp.getRawBits();
 }
 
-bool	Fixed::operator!=(const Fixed &rfp) {
+bool	Fixed::operator!=(const Fixed &rfp) const{
 	return  this->getRawBits() != rfp.getRawBits();
 }
 
-bool	Fixed::operator>=(const Fixed &rfp) {
+bool	Fixed::operator>=(const Fixed &rfp) const {
 	return  this->getRawBits() >= rfp.getRawBits();
 }
 
-bool	Fixed::operator<=(const Fixed &rfp) {
+bool	Fixed::operator<=(const Fixed &rfp) const {
 	return  this->getRawBits() <= rfp.getRawBits();
 }
 
-bool	Fixed::operator>(const Fixed &rfp) {
+bool	Fixed::operator>(const Fixed &rfp) const {
 	return  this->getRawBits() > rfp.getRawBits();
 }
 
-bool	Fixed::operator<(const Fixed &rfp) {
+bool	Fixed::operator<(const Fixed &rfp) const {
 	return  this->getRawBits() < rfp.getRawBits();
 }
 
-Fixed	Fixed::operator+(const Fixed &rfp) {
+Fixed	Fixed::operator+(const Fixed &rfp) const {
 	Fixed result;
 	result.setRawBits(this->getRawBits() + rfp.getRawBits());
 	return (result);
 }
 
-Fixed	Fixed::operator-(const Fixed &rfp) {
+Fixed	Fixed::operator-(const Fixed &rfp) const {
 	Fixed result;
 	result.setRawBits(this->getRawBits() - rfp.getRawBits());
 	return (result);
 }
 
-Fixed	Fixed::operator*(const Fixed &rfp) {
+Fixed	Fixed::operator*(const Fixed &rfp) const {
 	Fixed result;
 	result.setRawBits(((int64_t)this->getRawBits() * (int64_t)rfp.getRawBits()) / (1 << fractional));
 	return (result);
