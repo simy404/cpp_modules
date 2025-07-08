@@ -4,7 +4,7 @@
 class	Fixed
 {
 	int	_raw;
-	static const int	fractional; // make it 8
+	static const int	fractional;
 
 	public:
 		Fixed();

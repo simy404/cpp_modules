@@ -71,7 +71,7 @@ Fixed	Fixed::operator-(const Fixed &rfp) {
 
 Fixed	Fixed::operator*(const Fixed &rfp) {
 	Fixed result;
-	result.setRawBits(this->getRawBits() * rfp.getRawBits());
+	result.setRawBits(((int64_t)this->getRawBits() * (int64_t)rfp.getRawBits()) / (1 << fractional));
 	return (result);
 }
 

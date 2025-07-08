@@ -1,6 +1,6 @@
 #include "Fixed.hpp"
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 const int Fixed::fractional = 8;
 
@@ -16,7 +16,7 @@ Fixed::Fixed(const Fixed &fixed) {
 Fixed::Fixed(const int value)
 {
 	std::cout << "Int constructor called" << std::endl;
-	_raw = value << fractional;
+	_raw = value * (1 << fractional);
 }
 
 Fixed::Fixed(const float value)
@@ -44,7 +44,7 @@ void	Fixed::setRawBits(int const raw) {
 
 int		Fixed::toInt(void) const
 {
-	return _raw >> fractional;
+	return _raw / (1 << fractional);
 }
 
 float	Fixed::toFloat(void) const

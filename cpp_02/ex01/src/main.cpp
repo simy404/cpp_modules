@@ -1,14 +1,14 @@
 #include <iostream>
 #include <Fixed.hpp>
 
-std::ostream& operator<<(std::ostream &__out, const Fixed &fixed) 
+std::ostream& operator<<(std::ostream &__out, const Fixed &fixed)
 {
 	return __out << fixed.toFloat();
 }
 
 int main( void ) {
 	Fixed a;
-	Fixed const b( 10 );
+	Fixed const b(10 );
 	Fixed const c( 42.42f );
 	Fixed const d( b );
 
