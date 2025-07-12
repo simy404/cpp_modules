@@ -15,15 +15,12 @@ ScavTrap::ScavTrap(std::string _name) : ClapTrap(_name)
 	hit_points = 100;
 	energy_points = 50;
 	attack_damage = 20;
-	
+
 }
 
 ScavTrap::ScavTrap(const ScavTrap &scavTrap) : ClapTrap(scavTrap)
 {
 	std::cout << "ScavTrap Copty constructor called" << std::endl;
-	if (this != &scavTrap) {
-		*this = scavTrap;
-	}
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap &ScavTrap)
@@ -37,13 +34,16 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &ScavTrap)
 	}
 	return *this;
 }
+
 void ScavTrap::attack(const std::string& target)
 {
-	if (energy_points > 0) {
+	if (energy_points > 0 && hit_points > 0) {
 		std::cout << "ScavTrap "<< name <<" attacks "<< target <<", causing "<< attack_damage  <<" points of damage!" << std::endl;
 		energy_points--;
+	} else if (hit_points <= 0) {
+		std::cout << "ScavTrap "<< name <<" has no hit points left to attack!" << std::endl;
 	} else {
-		std::cout << "ScavTrap "<< name <<" has not enough energy" << std::endl;
+		std::cout << "ScavTrap "<< name <<" has no energy left to attack!" << std::endl;
 	}
 }
 
