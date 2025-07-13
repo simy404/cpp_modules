@@ -4,7 +4,7 @@
 class	Fixed
 {
 	int	_raw;
-	static const int	fractional; // make it 8
+	static const int	fractional;
 	
 	public:
 		Fixed();
@@ -25,6 +25,18 @@ class	Fixed
 		Fixed	operator-(const Fixed &fixed) const;
 		Fixed	operator*(const Fixed &fixed) const;
 		Fixed	operator/(const Fixed &fixed) const;
+
+		Fixed&	operator++();
+		Fixed	operator++(int);
+		Fixed&	operator--();
+		Fixed	operator--(int);
+
+		static Fixed&	min(Fixed &lfp, Fixed &rfp);
+		static const Fixed&	min(const Fixed &lfp, const Fixed &rfp);
+		
+		static Fixed&	max(Fixed &lfp, Fixed &rfp);
+		static const Fixed&	max(const Fixed &lfp, const Fixed &rfp);
+
 
 		int	getRawBits(void) const;
 		void	setRawBits(int const raw);
