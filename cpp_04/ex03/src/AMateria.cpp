@@ -7,6 +7,10 @@ AMateria::AMateria(const AMateria& amateria){}
 
 AMateria&	AMateria::operator=(const AMateria& amateria)
 {
+	if (this != &amateria)
+	{
+		this->_type = amateria._type;
+	}
 	return *this;	
 }
 
