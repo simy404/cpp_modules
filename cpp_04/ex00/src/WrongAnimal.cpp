@@ -1,14 +1,14 @@
 #include <WrongAnimal.hpp>
 #include <iostream>
 
-WrongAnimal::WrongAnimal() : type("WrongAnimal") 
+WrongAnimal::WrongAnimal() : type("WrongAnimal")
 {
 	std::cout << "WrongAnimal Default constructor called" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(std::string _type) : type(_type) {
 	std::cout << "WrongAnimal Parameter constructor called" << std::endl;
-}; 
+};
 
 WrongAnimal::WrongAnimal(const WrongAnimal &animal)
 {
@@ -29,7 +29,7 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal &animal)
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << "WrongAnimal Destructor assignment operator called" << std::endl;
+	std::cout << "WrongAnimal Destructor  called" << std::endl;
 }
 
 const std::string &WrongAnimal::getType() const

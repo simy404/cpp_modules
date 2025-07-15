@@ -23,7 +23,7 @@ WrongCat& WrongCat::operator=(const WrongCat &cat)
 
 WrongCat::~WrongCat()
 {
-	std::cout << "WrongCat Destructor assignment operator called" << std::endl;
+	std::cout << "WrongCat Destructor called" << std::endl;
 }
 
 void	WrongCat::makeSound() const

@@ -23,7 +23,7 @@ WrongDog& WrongDog::operator=(const WrongDog &dog)
 
 WrongDog::~WrongDog()
 {
-	std::cout << "WrongDog Destructor assignment operator called" << std::endl;
+	std::cout << "WrongDog Destructor called" << std::endl;
 }
 
 void	WrongDog::makeSound() const

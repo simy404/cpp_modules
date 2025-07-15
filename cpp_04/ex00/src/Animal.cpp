@@ -1,14 +1,14 @@
 #include <Animal.hpp>
 #include <iostream>
 
-Animal::Animal() : type("Animal") 
+Animal::Animal() : type("Animal")
 {
 	std::cout << "Animal Default constructor called" << std::endl;
 }
 
 Animal::Animal(std::string _type) : type(_type) {
 	std::cout << "Animal Parameter constructor called" << std::endl;
-}; 
+};
 
 Animal::Animal(const Animal &animal)
 {
@@ -29,7 +29,7 @@ Animal& Animal::operator=(const Animal &animal)
 
 Animal::~Animal()
 {
-	std::cout << "Animal Destructor  operator called" << std::endl;
+	std::cout << "Animal Destructor called" << std::endl;
 }
 
 const std::string &Animal::getType() const

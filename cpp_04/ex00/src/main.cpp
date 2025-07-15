@@ -31,7 +31,7 @@ int main()
 	std::cout << wj->getType() << " " << std::endl;
 	std::cout << wi->getType() << " " << std::endl;
 
-	wi->makeSound(); //will output the cat sound!
+	wi->makeSound();
 	wj->makeSound();
 	wmeta->makeSound();
 
