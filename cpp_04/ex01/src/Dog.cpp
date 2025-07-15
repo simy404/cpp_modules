@@ -22,15 +22,25 @@ Dog& Dog::operator=(const Dog &dog)
 	if (this != &dog)
 	{
 		type = dog.type;
-		brain = dog.brain;
+		*brain = *dog.brain;
 	}
 	return *this;
+}
+
+std::string Dog::get_idea(int index) const
+{
+	return brain->get_idea(index);
+}
+
+void Dog::set_idea(int index, const std::string& idea)
+{
+	brain->set_idea(index, idea);
 }
 
 Dog::~Dog()
 {
 	std::cout << "Dog Destructor operator called" << std::endl;
-	delete brain; 
+	delete brain;
 }
 
 void	Dog::makeSound() const

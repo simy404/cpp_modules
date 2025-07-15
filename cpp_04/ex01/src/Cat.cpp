@@ -22,9 +22,19 @@ Cat& Cat::operator=(const Cat &cat)
 	if (this != &cat)
 	{
 		type = cat.type;
-		brain = cat.brain;
+		*brain = *cat.brain;
 	}
 	return *this;
+}
+
+std::string Cat::get_idea(int index) const
+{
+	return brain->get_idea(index);
+}
+
+void Cat::set_idea(int index, const std::string& idea)
+{
+	brain->set_idea(index, idea);
 }
 
 Cat::~Cat()
