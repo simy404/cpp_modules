@@ -5,6 +5,9 @@
 
 #include <iostream>
 
+/*how to call function from vtable?
+	https://pastes.dev/OseP2Len9a
+*/
 int main()
 {
 	const Animal* meta = new Animal();
