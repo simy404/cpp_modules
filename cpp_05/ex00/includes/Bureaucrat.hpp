@@ -3,18 +3,31 @@
 
 #include <string>
 
-class	Breaucrat
+class	Bureaucrat
 {
 	private:
 		const std::string	name;
 		int					grade;
 
 	public:
-		Breaucrat();
-		Breaucrat(const Breaucrat &breucrat);
-		Breaucrat &operator=(const Breaucrat &breucrat);
+		Bureaucrat();
+		Bureaucrat(const Bureaucrat &bureaucrat);
+		Bureaucrat(const std::string &_name, int _grade);
 
-		~Breaucrat();
+		Bureaucrat		&operator=(const Bureaucrat &bureaucrat);
+
+		const std::string&	getName() const;
+		int					getGrade() const;
+
+		void			increment();
+		void			decrement();
+
+		~Bureaucrat();
+
+		class GradeTooHighException : std::exception {};
+		class GradeTooLowException : std::exception {};
 };
+
+
 
 #endif
