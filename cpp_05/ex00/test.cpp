@@ -1,17 +1,26 @@
 #include "string"
 #include <iostream>
+#include <exception>
 
 class test {
+	private:
+		virtual void hi() {}
 	public:
 		test() {std::cout << "test" << std::endl;}
 };
 
+void do_nothing() {}
+void do_sthing() {}
 
-int	main()
+int main()
 {
-	int a = 1214;
-	int c = 1214;
-	if (a == c)
-		return 1;
-	test *b = new(std::nothrow) test ;
+	int i = 0;
+	try {
+		if (i == 0)
+			throw 1;
+		else
+			do_sthing();
+	} catch(...) {
+		do_nothing();
+	}
 }

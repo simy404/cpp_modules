@@ -9,6 +9,8 @@ class	Bureaucrat
 		const std::string	name;
 		int					grade;
 
+		void				setGrade(int _grade);
+
 	public:
 		Bureaucrat();
 		Bureaucrat(const Bureaucrat &bureaucrat);
@@ -24,8 +26,8 @@ class	Bureaucrat
 
 		~Bureaucrat();
 
-		class GradeTooHighException : std::exception {};
-		class GradeTooLowException : std::exception {};
+		class GradeTooHighException : public std::exception {};
+		class GradeTooLowException : public std::exception {};
 };
 
 

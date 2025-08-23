@@ -1,19 +1,19 @@
 #include "Bureaucrat.hpp"
+#include <iostream>
 
 Bureaucrat::Bureaucrat() : name("Bureaucrat"), grade(150) {}
 
 Bureaucrat::Bureaucrat(const Bureaucrat &bureaucrat) : name(bureaucrat.name), grade(bureaucrat.grade) {}
 
-Bureaucrat::Bureaucrat(const std::string &_name, int _grade) : name(_name), grade(_grade)
+Bureaucrat::Bureaucrat(const std::string &_name, int _grade) : name(_name)
 {
-	// if (grade > 150)
-	//todo give exception if attr is not valid
+	this->setGrade(_grade);
 }
 
 Bureaucrat&		Bureaucrat::operator=(const Bureaucrat &bureaucrat)
 {
 	if (this != &bureaucrat) {
-		grade = grade;
+		grade = bureaucrat.grade;
 	}
 	return *this;
 }
@@ -23,6 +23,18 @@ const std::string&	Bureaucrat::getName() const
 	return name;
 }
 
+/* Self Encapsulate Field*/
+void	Bureaucrat::setGrade(int _grade)
+{
+	if (_grade > 150) {
+		throw GradeTooLowException();
+	}
+	if (_grade < 1) {
+		throw GradeTooHighException();
+	}
+	this->grade = _grade;
+}
+
 int	Bureaucrat::getGrade() const
 {
 	return grade;
@@ -30,12 +42,13 @@ int	Bureaucrat::getGrade() const
 
 void	Bureaucrat::increment()
 {
-
+	this->setGrade(grade - 1);
 }
 
 void	Bureaucrat::decrement()
 {
-
+	this->setGrade(grade + 1);
 }
 
 Bureaucrat::~Bureaucrat() {};
+
