@@ -21,6 +21,15 @@ int main()
 		else
 			do_sthing();
 	} catch(...) {
+		throw 1;
+		do_nothing();
+	}
+
+	try {
+
+	} catch(...) {
+		throw 1;
 		do_nothing();
 	}
 }
+
