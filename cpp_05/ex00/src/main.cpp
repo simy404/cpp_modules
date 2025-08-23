@@ -9,36 +9,37 @@ std::ostream&	operator<<(std::ostream& cout, const Bureaucrat &Bureaucrat)
 
 int	main()
 {
-	int a = 5;
-	Bureaucrat	b1("Child-1", 150);
-	Bureaucrat b2("Child-2", 1);
+	Bureaucrat	b1("Child-1", 140);
+	Bureaucrat	b2("Child-2", 10);
 
 	try
 	{
-		while (true) {
+		Bureaucrat b3("Child-3", 15);
+		while (true)
+		{
+			std::cout << b2 << std::endl;
 			b2.increment();
 		}
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << e.what() << '\n';
-		std::cout << a << std::endl;
+		std::cout << e.what() << std::endl;
+		std::cout << b2 << std::endl;
 	}
 
 	try
 	{
-		while (true) {
+		while (true)
+		{
+			std::cout << b1 << std::endl;
 			b1.decrement();
 		}
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
-		std::cout << a << std::endl;
+		std::cout << b1 << std::endl;
 	}
-
-	std::cout << b1 << std::endl;
-	std::cout <<b2 << std::endl;
 }
 
 
