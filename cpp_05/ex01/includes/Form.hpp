@@ -14,12 +14,14 @@ class Form
 		const int			_execGrade;
 		bool				_signed;
 
-		void				setGrade(int grade);
+		static int			validateGrade(int grade);
 
 	public:
 		Form();
 		Form(const Form &form);
 		Form(const std::string &_name, int signGrade, int execGrade);
+
+		Form		&operator=(const Form &form);
 
 		const std::string&	getName() const;
 		int					getSignGrade() const;

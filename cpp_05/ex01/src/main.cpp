@@ -26,6 +26,13 @@ int	main()
 
 	b1.signForm(f1);
 	b2.signForm(f2);
+
+	try {
+		Form("form-3", 199, 212);
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
 }
 
 
