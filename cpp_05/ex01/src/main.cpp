@@ -10,11 +10,10 @@ std::ostream&	operator<<(std::ostream& cout, const Bureaucrat &Bureaucrat)
 
 std::ostream&	operator<<(std::ostream& cout, const Form &Form)
 {
-	return cout << "form name: " << Form.getName() << std::endl
-	 			<< "form signGrade: " << Form.getSignGrade()
-				<< "form execGrade: " << Form.getExecGrade()
-				<< "form signed: " << (Form.getSigned() ? "true" : "false")
-				<< std::endl;
+	return cout << "name: " << Form.getName()
+	 			<< ", signGrade: " << Form.getSignGrade()
+				<< ", form execGrade: " << Form.getExecGrade()
+				<< ", form signed: " << (Form.getSigned() ? "true" : "false");
 }
 
 int	main()
@@ -25,14 +24,18 @@ int	main()
 	Form		f2("form-1", 130, 20);
 
 	b1.signForm(f1);
+	std::cout << f1 << std::endl;
 	b2.signForm(f2);
-
+	std::cout << f2 << std::endl;
+	
 	try {
 		Form("form-3", 199, 212);
 	}
 	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
+
+
 }
 
 
