@@ -1,4 +1,5 @@
 #include "../includes/Bureaucrat.hpp"
+#include "Form.hpp"
 #include <iostream>
 
 Bureaucrat::Bureaucrat() : name("Bureaucrat"), grade(150) {}
