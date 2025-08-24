@@ -10,18 +10,20 @@ class test {
 };
 
 void do_nothing() {}
-void do_sthing() {}
+void do_sthing() throw() {
+	try {
+		throw std::exception();
+	} catch (...) {
+		std::cout << "hi" << std::endl ;
+	}
+}
 
 int main()
 {
 	int i = 0;
 	try {
-		if (i == 0)
-			throw 1;
-		else
-			do_sthing();
+		do_sthing();
 	} catch(...) {
-		throw 1;
 		do_nothing();
 	}
 
