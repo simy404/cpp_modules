@@ -1,8 +1,11 @@
 NAME = Bureaucrat
 
 SRCS = src/main.cpp \
-	src/Form.cpp \
+	src/AForm.cpp \
 	src/Bureaucrat.cpp \
+	src/PresidentialPardonForm.cpp \
+	src/ShrubberyCreationForm.cpp \
+	src/RobotomyRequestForm.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
