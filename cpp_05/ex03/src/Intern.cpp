@@ -33,7 +33,7 @@ AForm	*Intern::makeForm(std::string formName, std::string target)
 	AForm*	form = NULL;
 
 	for (size_t i = 0; i < 3; i++) {
-		if (target == formNames[i]) {
+		if (formName == formNames[i]) {
 			form = (this->*maker[i])(target);
 			std::cout << "Intern creates " << formNames[i];
 			break;

@@ -4,6 +4,7 @@
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 std::ostream&	operator<<(std::ostream& cout, const Bureaucrat &Bureaucrat)
 {
@@ -21,23 +22,19 @@ std::ostream&	operator<<(std::ostream& cout, const AForm &Form)
 int	main()
 {
 	Bureaucrat		b1("Child-1", 5);
-	Bureaucrat		b2("Child-2", 50);
-	PresidentialPardonForm f1("Target-1");
 
-	b1.executeForm(f1);
-	std::cout << f1 << std::endl;
-	b1.signForm(f1);
-	b1.executeForm(f1);
+	Intern intern;
 
-	b2.executeForm(f1);
+	AForm* f2 = intern.makeForm("test", "target");
+	if (f2 == NULL) {
+		std::cout << "f2 is null" << std::endl;
+	}
+	AForm* f3 = intern.makeForm("roboto myRequest", "target-3");
+	if (f3 != NULL) {
+		b1.signForm(*f3);
+		b1.executeForm(*f3);
+	}
 
-	ShrubberyCreationForm s1("Target-2");
-	b1.signForm(s1);
-	b1.executeForm(s1);
-
-	RobotomyRequestForm r1("Target-3");
-	b1.signForm(r1);
-	b1.executeForm(r1);
 }
 
 
