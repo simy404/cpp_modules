@@ -6,19 +6,6 @@
 #include "RobotomyRequestForm.hpp"
 #include "Intern.hpp"
 
-std::ostream&	operator<<(std::ostream& cout, const Bureaucrat &Bureaucrat)
-{
-	return cout << Bureaucrat.getName() << ", bureaucrat grade " << Bureaucrat.getGrade() << ".";
-}
-
-std::ostream&	operator<<(std::ostream& cout, const AForm &Form)
-{
-	return cout << "name: " << Form.getName()
-	 			<< ", signGrade: " << Form.getSignGrade()
-				<< ", form execGrade: " << Form.getExecGrade()
-				<< ", form signed: " << (Form.getSigned() ? "true" : "false");
-}
-
 int	main()
 {
 	Bureaucrat		b1("Child-1", 5);
@@ -36,5 +23,3 @@ int	main()
 	}
 
 }
-
-
