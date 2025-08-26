@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Intern.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -5,9 +6,9 @@
 
 Intern::Intern() {};
 
-Intern::Intern(const Intern& intern) {}
+Intern::Intern(const Intern& intern) { (void)intern;}
 
-Intern&	Intern::operator=(const Intern& intern) { return *this};
+Intern&	Intern::operator=(const Intern& intern) { (void)intern; return *this;}
 
 AForm *Intern::makeRobotomyRequestForm(const std::string& target) {return new RobotomyRequestForm(target);}
 
@@ -17,29 +18,31 @@ AForm *Intern::makeShrubberyCreationForm(const std::string& target) {return new 
 
 AForm	*Intern::makeForm(std::string formName, std::string target)
 {
-	typedef AForm* (Intern::*FormMaker)(const std::string& _target);
-
-	FormMaker	maker[3] = {
+	 AForm* (Intern::*maker[3])(const std::string& _target) = {
 		&Intern::makeRobotomyRequestForm,
 		&Intern::makePresidentialPardonForm,
 		&Intern::makeShrubberyCreationForm
 	};
 
-	std::string	FormNames[3] = {
+	std::string	formNames[3] = {
 		"roboto myRequest",
 		"presidential pardon",
 		"shrubbery creation"
 	};
 
-	AForm*		form = NULL;
+	AForm*	form = NULL;
 
 	for (size_t i = 0; i < 3; i++) {
-		if (target == FormNames[i]) {
+		if (target == formNames[i]) {
 			form = (this->*maker[i])(target);
+			std::cout << "Intern creates " << formNames[i];
 			break;
 		}
 	}
 
+	if (form == NULL) {
+		std::cout << "Intern cannot find form with this name " << formName << std::endl;
+	}
 	return form;
 }
 Intern::~Intern() {};
