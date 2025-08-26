@@ -1,5 +1,6 @@
 #include "Form.hpp"
 #include "../includes/Bureaucrat.hpp"
+#include <iostream>
 
 Form::Form() : _name("Form"), _signGrade(150), _execGrade(150), _signed(false) {}
 
@@ -63,4 +64,12 @@ const char* Form::GradeTooHighException::what() const throw()
 const char* Form::GradeTooLowException::what() const throw()
 {
 	return "GradeTooLowException";
+}
+
+std::ostream&	operator<<(std::ostream& cout, const Form &Form)
+{
+	return cout << "name: " << Form.getName()
+	 			<< ", signGrade: " << Form.getSignGrade()
+				<< ", form execGrade: " << Form.getExecGrade()
+				<< ", form signed: " << (Form.getSigned() ? "true" : "false");
 }

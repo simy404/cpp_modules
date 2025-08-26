@@ -39,4 +39,6 @@ class	Bureaucrat
 		};
 };
 
+std::ostream&	operator<<(std::ostream& cout, const Bureaucrat &Bureaucrat);
+
 #endif

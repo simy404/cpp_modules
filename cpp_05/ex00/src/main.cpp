@@ -2,11 +2,6 @@
 #include <string>
 #include "Bureaucrat.hpp"
 
-std::ostream&	operator<<(std::ostream& cout, const Bureaucrat &Bureaucrat)
-{
-	return cout << Bureaucrat.getName() << ", bureaucrat grade " << Bureaucrat.getGrade() << ".";
-}
-
 int	main()
 {
 	Bureaucrat	b1("Child-1", 140);
